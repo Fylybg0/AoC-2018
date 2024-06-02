@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_set>
+#include <chrono>
 using namespace std;
 
 int nums_size;
@@ -33,7 +34,15 @@ void solve() {
 }
 
 int main() {
+    auto start_time = std::chrono::high_resolution_clock::now();
+
     setup();
     solve();
+
+    auto end_time = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);
+    cout << "Clock time: " << duration.count() / (double)1000000 << " s" << endl;
+
+
     return 0;
 }
